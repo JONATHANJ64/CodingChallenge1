@@ -46,7 +46,7 @@ form {
   }
   
   #output {
-    margin-top: 200px;
+    margin-top: 40px;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
