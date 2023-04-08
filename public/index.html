@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="./favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="./logo192.png" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>FizzBuzz Generator</title>
+  <style>
+    /* your CSS styles go here */
+  </style>
+</head>
+
+<body>
+  <h1>FizzBuzz Generator</h1>
+  <form>
+    <label for="fizz">Fizz value:</label>
+    <input type="number" id="fizz" name="fizz" required><br><br>
+
+    <label for="buzz">Buzz value:</label>
+    <input type="number" id="buzz" name="buzz" required><br><br>
+
+    <label for="minVal">Minimum value:</label>
+    <input type="number" id="minVal" name="minVal" required><br><br>
+
+    <label for="maxVal">Maximum value:</label>
+    <input type="number" id="maxVal" name="maxVal" required><br><br>
+
+    <button type="submit">Generate FizzBuzz</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    function runFizzBuzz(fizz, buzz, minVal, maxVal) {
+      const result = fizzBuzz(fizz, buzz, minVal, maxVal);
+      return Promise.resolve(result);
+    }
+
+    function fizzBuzz(fizz, buzz, minVal, maxVal) {
+      let output = '';
+      for (let i = minVal; i <= maxVal; i++) {
+        if (i % fizz === 0 && i % buzz === 0) {
+          output += 'FizzBuzz ';
+        } else if (i % fizz === 0) {
+          output += 'Fizz ';
+        } else if (i % buzz === 0) {
+          output += 'Buzz ';
+        } else {
+          output += i + ' ';
+        }
+      }
+      return output.trim();
+    }
+
+    const form = document.querySelector('form');
+    const outputDiv = document.getElementById('output');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const fizz = Number(document.getElementById('fizz').value);
+      const buzz = Number(document.getElementById('buzz').value);
+      const minVal = Number(document.getElementById('minVal').value);
+      const maxVal = Number(document.getElementById('maxVal').value);
+
+      runFizzBuzz(fizz, buzz, minVal, maxVal)
+        .then(result => {
+          outputDiv.innerText = result;
+        })
+        .catch(error => {
+          outputDiv.innerText = 'Error: ' + error.message;
+        });
+    });
+  </script>
+</body>
+</html>
