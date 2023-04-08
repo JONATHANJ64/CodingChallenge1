@@ -58,5 +58,30 @@ form {
     text-align: center;
     background-color: #0069d9;
   }
+  .number, .fizz, .buzz, .fizzbuzz {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 2px;
+  }
   
+  .number {
+    background-color: #fff;
+  }
+  
+  .fizz {
+    background-color: yellow;
+  }
+  
+  .buzz {
+    background-color: lightblue;
+  }
+  
+  .fizzbuzz {
+    background-color: pink;
+  }
+  
+  .clear {
+    clear: both;
+  }
   

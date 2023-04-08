@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="./favicon.ico" />
@@ -11,7 +12,7 @@
   <link rel="stylesheet" href="./style.css" />
   <title>FizzBuzz Generator</title>
   <style>
-    /* your CSS styles go here */
+    
   </style>
 </head>
 
@@ -42,17 +43,21 @@
     }
 
     function fizzBuzz(fizz, buzz, minVal, maxVal) {
-      let output = '';
+      let output = '  ';
       for (let i = minVal; i <= maxVal; i++) {
         if (i % fizz === 0 && i % buzz === 0) {
-          output += 'FizzBuzz ';
+          output += '  FizzBuzz   ';
         } else if (i % fizz === 0) {
-          output += 'Fizz ';
+          output += '  Fizz   ';
         } else if (i % buzz === 0) {
-          output += 'Buzz ';
+          output += '  Buzz   ';
         } else {
-          output += i + ' ';
+          output += i + '   ';
         }
+        // Add line break after every 10 numbers
+    if (i % 10 === 0) {
+      output += '\n';
+    }
       }
       return output.trim();
     }
@@ -78,4 +83,5 @@
     });
   </script>
 </body>
+
 </html>
